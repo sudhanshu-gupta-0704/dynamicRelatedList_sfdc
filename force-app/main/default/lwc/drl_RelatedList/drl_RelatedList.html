@@ -1,0 +1,35 @@
+<template>
+    <article class="slds-card">
+        <div class="slds-card__header slds-grid slds-page-header forceRelatedListCardHeader">
+          <header class="slds-media slds-media_center slds-has-flexi-truncate">
+            <div class="slds-media__figure">
+                <lightning-icon icon-name="standard:file" size="file" alternative-text="file" title="file"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+              <h2 class="slds-card__header-title">
+                <a href="#" class="slds-card__header-link slds-truncate" title={rltdList_Title}>
+                  <span>{rltdList_Title}(1)</span>
+                </a>
+              </h2>
+            </div>
+            <div class="slds-no-flex">
+              <button class="slds-button slds-button_neutral">New</button>
+            </div>
+          </header>
+        </div>
+        <div class="slds-card__body slds-card__body_inner">
+          <template if:true={isTable}>
+            <lightning-datatable key-field="Id" data={data} columns={columnData} hide-checkbox-column>
+            </lightning-datatable>
+          </template>
+          <template if:true={isTile1}>
+            <c-drl_-related-list-small-tile></c-drl_-related-list-small-tile>
+          </template>
+        </div>
+        <footer class="slds-card__footer">
+          <a class="slds-card__footer-action" href="#">View All
+            <span class="slds-assistive-text">Accounts</span>
+          </a>
+        </footer>
+      </article>
+</template>
