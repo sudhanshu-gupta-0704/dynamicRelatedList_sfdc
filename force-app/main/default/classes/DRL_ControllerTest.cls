@@ -6,7 +6,7 @@
 /* MODIFICATION LOG
 * Version          Developer          Date               Description
 *-------------------------------------------------------------------------------------------
-*  1.0              Sudhanshu        August 7,2022       Initial Creation                                                      
+*  1.0              Vinky        August 7,2022       Initial Creation                                                      
 *******************************************************************************************/
 @isTest
 public without sharing class DRL_ControllerTest {
@@ -18,7 +18,7 @@ public without sharing class DRL_ControllerTest {
     /* MODIFICATION LOG
     * Version          Developer          Date               Description
     *-------------------------------------------------------------------------------------------
-    *  1.0              Sudhanshu        August 7,2022       Initial Creation                                                      
+    *  1.0              Vinky        August 7,2022       Initial Creation                                                      
     *******************************************************************************************/ 
     @TestSetup
     static void generateTestData(){
@@ -39,7 +39,7 @@ public without sharing class DRL_ControllerTest {
     /* MODIFICATION LOG
     * Version          Developer          Date               Description
     *-------------------------------------------------------------------------------------------
-    *  1.0              Sudhanshu        August 7,2022       Initial Creation                                                      
+    *  1.0              Vinky        August 7,2022       Initial Creation                                                      
     *******************************************************************************************/ 
 @IsTest
  static void testGetMetadata(){

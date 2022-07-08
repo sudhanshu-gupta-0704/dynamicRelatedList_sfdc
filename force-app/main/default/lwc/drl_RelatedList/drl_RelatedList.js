@@ -72,13 +72,11 @@ export default class drl_RelatedList extends NavigationMixin(LightningElement) {
    handleRowAction(event){
     const actionName = event.detail.action.name;
         const row = event.detail.row;
-        console.log('row'+JSON.stringify(row));
         switch (actionName) {
             case 'Delete_Button':
                 this.rowId = row.Id.toString().substring(1);           
                 break;
             case 'Edit_Button':
-                console.log('edit');
                 this.editSFRecord(row.Id.toString().substring(1))
                 break;
             default:
@@ -87,7 +85,6 @@ export default class drl_RelatedList extends NavigationMixin(LightningElement) {
    }
 
    deleteSFRecord(sRecordId){
-    console.log('RecordId Delete'+sRecordId);
     deleteRecord(sRecordId)
             .then(() => {
                 this.dispatchEvent(
@@ -142,11 +139,9 @@ export default class drl_RelatedList extends NavigationMixin(LightningElement) {
         
     }
 
-    getApexData(){
-        console.log('Apex Calles');        
+    getApexData(){       
         let object = { 'recordId': this.recordId, 'relatedListName': this.rltdList_Config }
         getData({'mapInputParams' : object}).then(result => {
-            console.log('Res: '+JSON.stringify(result));
             if(result.data){
                 this.data = JSON.parse(result.data);
                 this.recordCount = this.data.length;
@@ -157,17 +152,14 @@ export default class drl_RelatedList extends NavigationMixin(LightningElement) {
                 } else{
                     this.listData =JSON.parse(result.data);
                 }
-                console.log('Data:  '+JSON.stringify(this.data));
             }
             else{
                 this.recordCount =0;
             }
             if(result.columnData){
                 this.columnData = JSON.parse(result.columnData);
-                console.log('Column:  '+JSON.stringify(this.columnData));
             }
             if(result.buttonData){
-                console.log('Button Data:'+ JSON.stringify(result.buttonData))
                 this.buttonData = eval(result.buttonData);
             }
     }).catch(error => {
@@ -187,5 +179,10 @@ export default class drl_RelatedList extends NavigationMixin(LightningElement) {
     }
     deleteRecord() {
         this.deleteSFRecord(row.Id.toString().substring(1));
+    }
+
+
+    generateIcon(){
+        
     }
 }

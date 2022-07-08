@@ -7,7 +7,7 @@
 /* MODIFICATION LOG
 * Version          Developer          Date               Description
 *-------------------------------------------------------------------------------------------
-*  1.0              Sudhanshu        August 7,2022       Initial Creation                                                      
+*  1.0              Vinky        August 7,2022       Initial Creation                                                      
 *******************************************************************************************/
 public without sharing class DRL_Controller {
 
@@ -21,7 +21,7 @@ public without sharing class DRL_Controller {
     /* MODIFICATION LOG
     * Version          Developer          Date               Description
     *-------------------------------------------------------------------------------------------
-    *  1.0              Sudhanshu        August 7,2022       Initial Creation                                                      
+    *  1.0              Vinky        August 7,2022       Initial Creation                                                      
     *******************************************************************************************/ 
  @AuraEnabled
  public static Map<String, Object> getMetadata(Map<String, Object> mapInputParams){
@@ -179,7 +179,7 @@ public without sharing class DRL_Controller {
     /* MODIFICATION LOG
     * Version          Developer          Date               Description
     *-------------------------------------------------------------------------------------------
-    *  1.0              Sudhanshu        August 7,2022       Initial Creation                                                      
+    *  1.0              Vinky        August 7,2022       Initial Creation                                                      
     *******************************************************************************************/
     public static String generateColumnData(Map<String, Object> mapInputParams){        
         //Variable Deceleration
@@ -244,7 +244,7 @@ public without sharing class DRL_Controller {
     /* MODIFICATION LOG
     * Version          Developer          Date               Description
     *-------------------------------------------------------------------------------------------
-    *  1.0              Sudhanshu        August 7,2022       Initial Creation                                                      
+    *  1.0              Vinky        August 7,2022       Initial Creation                                                      
     *******************************************************************************************/
     public static String getCompleteQuery(String sCondition){
         if(sCondition.indexOf('{') != -1 && sCondition.indexOf('}') != -1){

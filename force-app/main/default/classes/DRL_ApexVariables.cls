@@ -7,7 +7,7 @@
 /* MODIFICATION LOG
 * Version          Developer          Date               Description
 *-------------------------------------------------------------------------------------------
-*  1.0              Sudhanshu        August 7,2022       Initial Creation                                                      
+*  1.0              Vinky        August 7,2022       Initial Creation                                                      
 *******************************************************************************************/
 public with sharing class DRL_ApexVariables implements Callable {
     
@@ -18,7 +18,7 @@ public with sharing class DRL_ApexVariables implements Callable {
     /* MODIFICATION LOG
     * Version          Developer          Date               Description
     *-------------------------------------------------------------------------------------------
-    *  1.0              Sudhanshu        August 7,2022       Initial Creation                                                      
+    *  1.0              Vinky        August 7,2022       Initial Creation                                                      
     *******************************************************************************************/ 
     public Object call(String action, Map<String, Object> args){
         //Check the Action Name

@@ -20,7 +20,6 @@ export default class Drl_RelatedListSmallTile extends LightningElement {
         let data = this.tiledata;
         //let JSONColumns = JSON.parse(this.column);
         let JSONColumns = this.column;
-        console.log('JSON: '+JSON.stringify(JSONColumns));
         let tileDetails=[];
         JSONColumns.forEach(element => {
                 if(element.type == 'url'){
@@ -223,13 +222,11 @@ export default class Drl_RelatedListSmallTile extends LightningElement {
         }
         tileDetails.shift();
 
-        console.log('JSON Data : '+JSON.stringify(tileDetails));
         this.bFirstLoad= false;
         }
     }
 
     openActionMenu(event){
-        console.log('Here Daata'+this.menuDivClasses);
         if(this.menuDivClasses.includes(' slds-is-open')){
             this.menuDivClasses= this.menuDivClasses.replace(' slds-is-open', '');
         } else {
@@ -238,12 +235,10 @@ export default class Drl_RelatedListSmallTile extends LightningElement {
     }
 
     handleActionClick(event){
-        alert('Button CLicked'+event.target.value);
-        console.log(JSON.stringify(
         this.dispatchEvent(
         new customEvent('edit', {
             'recordId' : tileData['Id']
-        }))));
+        }));
     }
 
 }

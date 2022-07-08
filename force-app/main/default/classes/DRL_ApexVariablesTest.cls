@@ -6,7 +6,7 @@
 /* MODIFICATION LOG
 * Version          Developer          Date               Description
 *-------------------------------------------------------------------------------------------
-*  1.0              Sudhanshu        August 7,2022       Initial Creation                                                      
+*  1.0              Vinky        August 7,2022       Initial Creation                                                      
 *******************************************************************************************/
 @isTest
 public without sharing class DRL_ApexVariablesTest {
@@ -19,7 +19,7 @@ public without sharing class DRL_ApexVariablesTest {
     /* MODIFICATION LOG
     * Version          Developer          Date               Description
     *-------------------------------------------------------------------------------------------
-    *  1.0              Sudhanshu        August 7,2022       Initial Creation                                                      
+    *  1.0              Vinky        August 7,2022       Initial Creation                                                      
     *******************************************************************************************/ 
    @isTest
  static void testApexVariableMethod(){   

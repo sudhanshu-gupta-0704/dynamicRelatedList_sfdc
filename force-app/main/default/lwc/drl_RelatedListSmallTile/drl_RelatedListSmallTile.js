@@ -11,15 +11,13 @@ export default class Drl_RelatedListSmallTile extends LightningElement {
     @track showDeleteAction;
     @track showEditAction;
     @track showActions=false;
+    @track recordIcon;
     bFirstLoad = true;
 
     renderedCallback(){
         if(this.bFirstLoad){
-        //let data = JSON.parse(this.data);
         let data = this.tiledata;
-        //let JSONColumns = JSON.parse(this.column);
         let JSONColumns = this.column;
-        console.log('JSON: '+JSON.stringify(JSONColumns));
         let tileDetails=[];
         JSONColumns.forEach(element => {
                 if(element.type == 'url'){
@@ -221,14 +219,7 @@ export default class Drl_RelatedListSmallTile extends LightningElement {
             this.tileTitle = dataSet.urlTitle;
         }
         tileDetails.shift();
-
-        console.log('JSON Data : '+JSON.stringify(tileDetails));
         this.bFirstLoad= false;
         }
     }
-
-    actionClicked(){
-        alert.log('Button CLicked');
-    }
-
 }
