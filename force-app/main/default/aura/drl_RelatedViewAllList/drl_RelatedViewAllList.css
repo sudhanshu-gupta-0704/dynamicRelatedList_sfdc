@@ -1,0 +1,16 @@
+.THIS .pageHeader{
+    max-height: 100%;
+}
+.THIS .dataTable{
+    min-height: fit-content; 
+    width:auto; 
+    overflow-y: auto;
+}
+.THIS.header{
+    min-height: 100%;  
+    overflow-y: auto; 
+    background-color: #f3f3f3;
+}
+.THIS .refreshButton{
+    margin: 5px;
+}

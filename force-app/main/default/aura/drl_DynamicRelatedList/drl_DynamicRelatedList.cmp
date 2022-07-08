@@ -1,0 +1,17 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId">
+    <aura:attribute name="rltdList_Title" type="String" />
+    <aura:attribute name="rltdList_Icon" type="String" default="standard:record" />
+    <aura:attribute name="rltdList_Config" type="String" />
+    <aura:attribute name="rltd_List_DisplayAs" type="String" />
+    <aura:attribute name="recordId" type="String" />
+    <c:drl_RelatedList onlistbuttonclicked="{!c.listButtonClicked}" recordId="{!v.recordId}"
+    rltdList_Title="{!v.rltdList_Title}"
+    rltdList_Config="{!v.rltdList_Config}"
+    rltdList_Icon="{!v.rltdList_Icon}"
+    rltd_List_DisplayAs="{!v.rltd_List_DisplayAs}"
+
+    
+    
+    ></c:drl_RelatedList>
+    {!v.body}
+</aura:component>

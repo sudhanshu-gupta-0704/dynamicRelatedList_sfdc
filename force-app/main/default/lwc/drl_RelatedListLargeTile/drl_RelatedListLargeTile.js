@@ -12,6 +12,7 @@ export default class Drl_RelatedListSmallTile extends LightningElement {
     @track showEditAction;
     @track showActions=false;
     bFirstLoad = true;
+    @track menuDivClasses = "slds-dropdown-trigger slds-dropdown-trigger_click slds-button_last";
 
     renderedCallback(){
         if(this.bFirstLoad){
@@ -227,8 +228,22 @@ export default class Drl_RelatedListSmallTile extends LightningElement {
         }
     }
 
-    actionClicked(){
-        alert.log('Button CLicked');
+    openActionMenu(event){
+        console.log('Here Daata'+this.menuDivClasses);
+        if(this.menuDivClasses.includes(' slds-is-open')){
+            this.menuDivClasses= this.menuDivClasses.replace(' slds-is-open', '');
+        } else {
+            this.menuDivClasses+= ' slds-is-open';
+        }
+    }
+
+    handleActionClick(event){
+        alert('Button CLicked'+event.target.value);
+        console.log(JSON.stringify(
+        this.dispatchEvent(
+        new customEvent('edit', {
+            'recordId' : tileData['Id']
+        }))));
     }
 
 }

@@ -1,18 +1,38 @@
 <template>
     <div class="tile">
-        <article class="slds-tile slds-media">
-          <div class="slds-media__figure">
-            <lightning-icon icon-name="standard:record" alternative-text="Record" key={eachRecord}></lightning-icon>
-          </div>
-          <div class="slds-media__body">
-            <h3 class="slds-tile slds-truncate" title={tileTitle}>
-              <a href={navURL} target="_blank" class="forceContentVirtualRelatedListStencil itemTitle">{tileTitle}</a>
+        <article class="slds-tile slds-hint-parent">
+          <div class="slds-grid slds-grid_align-spread">
+            <h3 class="slds-tile__title slds-truncate" title={tileTitle}>
+                <a href={navURL} target="_blank">{tileTitle}</a>
             </h3>
-            <div class="slds-tile__detail">
-              <ul class="slds-list_horizontal slds-has-dividers_left slds-wrap">
+            <template if:true={showActions}>
+            <div class={menuDivClasses}>
+              <button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" aria-haspopup="true" aria-expanded="true" title="More options" onclick={openActionMenu}>
+                <svg class="slds-button__icon slds-button__icon_hint" aria-hidden="true">
+                  <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
+                </svg>
+                <span class="slds-assistive-text"></span>
+              </button>
+              <div class="slds-dropdown slds-dropdown_right slds-dropdown_actions">
+                <ul class="slds-dropdown__list" role="menu">
+                    <template if:true={showEditAction}>
+                        <lightning-menu-item class="slds-dropdown__item" value="Edit" label="Edit" role="presentation" onclick={handleActionClick}>
+                        </lightning-menu-item>
+                    </template>
+                    <template if:true={showDeleteAction}>
+                        <lightning-menu-item class="slds-dropdown__item" value="Delete" label="Delete" role="presentation" onclick={handleActionClick}>
+                        </lightning-menu-item>
+                    </template>
+                </ul>
+              </div>
+            </div>
+            </template>
+          </div>
+          <div class="slds-tile__detail">
+            <dl class="slds-list_horizontal slds-wrap">
                 <template for:each={tileDetails} for:item="element">
-                    <li key={element} class="slds-item">
-                    <lightning-layout-item key={element}>
+                    <dt class="slds-item_label slds-text-color_weak slds-truncate" title={element.label} key={element}>{element.label}:</dt>
+                    <dd class="slds-item_detail slds-truncate" key={element}>
                         <template if:true={element.isURL}>
                             <lightning-formatted-url value={element.value} tooltip={element.urlTitle} label={element.urlTitle} target="_blank" ></lightning-formatted-url>
                         </template>
@@ -68,11 +88,10 @@
                                                         currency-display-as={element.currencyDisplayAs}
                             ></lightning-formatted-number>
                         </template>
-                    </lightning-layout-item>
-                </li>
+                    </dd>
+              
                 </template>
-              </ul>
-            </div>
+            </dl>
           </div>
         </article>
       </div>

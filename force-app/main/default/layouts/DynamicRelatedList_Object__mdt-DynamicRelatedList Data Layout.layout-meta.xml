@@ -30,10 +30,6 @@
                 <behavior>Edit</behavior>
                 <field>Filter_Condition__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Query_Binding_Variables__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

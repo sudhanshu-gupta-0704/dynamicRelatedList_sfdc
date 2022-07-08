@@ -1,35 +1,89 @@
 <template>
-    <article class="slds-card">
-        <div class="slds-card__header slds-grid slds-page-header forceRelatedListCardHeader">
-          <header class="slds-media slds-media_center slds-has-flexi-truncate">
-            <div class="slds-media__figure">
-                <lightning-icon icon-name="standard:file" size="file" alternative-text="file" title="file"></lightning-icon>
-            </div>
-            <div class="slds-media__body">
-              <h2 class="slds-card__header-title">
-                <a href="#" class="slds-card__header-link slds-truncate" title={rltdList_Title}>
-                  <span>{rltdList_Title}(1)</span>
-                </a>
-              </h2>
-            </div>
-            <div class="slds-no-flex">
-              <button class="slds-button slds-button_neutral">New</button>
-            </div>
-          </header>
-        </div>
-        <div class="slds-card__body slds-card__body_inner">
-          <template if:true={isTable}>
-            <lightning-datatable key-field="Id" data={data} columns={columnData} hide-checkbox-column>
-            </lightning-datatable>
+  <article class="slds-card" onfocus={handleFocus}>
+      <div class="slds-card__header slds-grid slds-page-header forceRelatedListCardHeader listHeader">
+        <header class="slds-media slds-media_center slds-has-flexi-truncate">
+          <div class="slds-media__figure">
+              <lightning-icon icon-name={rltdList_Icon} size="small" alternative-text="file" title="file"></lightning-icon>
+          </div>
+          <div class="slds-media__body">
+            <h2 class="slds-card__header-title">
+              <a href="#" class="slds-card__header-link slds-truncate" title={rltdList_Title}>
+                <span>{rltdList_Title} ({recordCount})</span>
+              </a>
+            </h2>
+          </div>  
+          <div class="slds-no-flex">   
+            <lightning-layout>
+              <lightning-layout-item class="refreshButton">
+            <lightning-button-icon icon-name="utility:refresh"  alternative-text="Refresh List" title="Refresh List" onclick={refreshData} ></lightning-button-icon> 
+          </lightning-layout-item>          
+            <template for:each={buttonData} for:item="button">
+              <lightning-layout-item key={button.buttonLabel} class="refreshButton">
+                <button class="slds-button slds-button_neutral" key={button.buttonLabel} data-component={button.componentName} onclick={handleListButtonClick}>{button.buttonLabel}</button>
+                </lightning-layout-item>
+            </template>
+          </lightning-layout>              
+          </div>
+        </header>
+      </div>
+      <div class="slds-card__body slds-card__body_inner container">
+        <template if:true={isTable}>
+          <lightning-datatable class="dataTable" key-field="Id" data={listData} columns={columnData} onrowaction={handleRowAction} hide-checkbox-column>
+          </lightning-datatable>
+        </template>
+        <template if:true={isTile1}>
+          <template for:each={listData} for:item="eachRecord">
+            <lightning-layout allow-multiple-rows="true" key={eachRecord} class="container_Item">
+              <lightning-layout-item flexibility="auto">
+                <c-drl_-related-list-small-tile tiledata={eachRecord} column={columnData} key={eachRecord}></c-drl_-related-list-small-tile> 
+              </lightning-layout-item>
+            </lightning-layout>             
           </template>
-          <template if:true={isTile1}>
-            <c-drl_-related-list-small-tile></c-drl_-related-list-small-tile>
-          </template>
-        </div>
-        <footer class="slds-card__footer">
-          <a class="slds-card__footer-action" href="#">View All
-            <span class="slds-assistive-text">Accounts</span>
-          </a>
-        </footer>
-      </article>
+      </template>
+      <template if:true={isTile2}>
+        <template for:each={listData} for:item="eachRecord">          
+            <lightning-layout allow-multiple-rows="true" key={eachRecord} class="container_Item">
+              <lightning-layout-item flexibility="auto">
+                <c-drl_-related-list-large-tile tiledata={eachRecord} onedit={editSFRecord} ondelete={deleteSFRecord} column={columnData} key={eachRecord}></c-drl_-related-list-large-tile> 
+              </lightning-layout-item>
+            </lightning-layout>              
+      </template>
+    </template>
+      </div>
+      <footer class="slds-card__footer">
+        <button class="slds-button slds-button_base" onclick={navigateToViewAll}>View All</button>
+      </footer>
+    </article>
+
+    <!--Use template if:true to display/hide popup based on isModalOpen value--> 
+      <template if:true={isModalOpen}>
+          <!-- Modal/Popup Box LWC starts here -->
+          <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+              <div class="slds-modal__container">
+                  <!-- Modal/Popup Box LWC header here -->
+                  <header class="slds-modal__header">
+                      <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                          <lightning-icon icon-name="utility:close"
+                              alternative-text="close"
+                              variant="inverse"
+                              size="small" ></lightning-icon>
+                          <span class="slds-assistive-text">Close</span>
+                      </button>
+                      <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Delete Record?</h2>
+                  </header>
+                  <!-- Modal/Popup Box LWC body starts here -->
+                  <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                      Are you sure you want to delete this item?
+                  </div>
+                  <!-- Modal/Popup Box LWC footer starts here -->
+                  <footer class="slds-modal__footer">
+                      <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>                    
+                      <button class="slds-button slds-button_brand" onclick={deleteRecord} title="Delete">Delete</button>
+                  </footer>
+              </div>
+          </section>
+          <div class="slds-backdrop slds-backdrop_open"></div>
+      </template>
+
+    
 </template>

@@ -1,0 +1,9 @@
+li span {
+    position: relative;
+    left: -10px;
+  }
+
+  .tile{
+  padding-left: 16px;
+  min-width: fit-content;
+}

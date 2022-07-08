@@ -15,8 +15,16 @@
                 <field>DeveloperName</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>List_Title__c</field>
+                <behavior>Edit</behavior>
+                <field>Button_Configuration__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Show_Edit_Action__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Show_Delete_Action__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -51,27 +59,42 @@
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
     <layoutSections>
-        <customLabel>false</customLabel>
-        <detailHeading>false</detailHeading>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
+        <label>Custom Links</label>
+        <layoutColumns/>
+        <layoutColumns/>
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
     <relatedLists>
-        <fields>MasterLabel</fields>
         <fields>DeveloperName</fields>
-        <fields>NamespacePrefix</fields>
+        <fields>MasterLabel</fields>
+        <fields>Filter_Condition__c</fields>
+        <fields>Object_API_Name__c</fields>
         <relatedList>DynamicRelatedList_Object__mdt.DynamicRelatedList__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>MasterLabel</fields>
         <fields>DeveloperName</fields>
-        <fields>NamespacePrefix</fields>
+        <fields>DynamicRelatedList_Object__c</fields>
+        <fields>Related_List_Title__c</fields>
+        <fields>Field_API_Name__c</fields>
+        <fields>Sequence_In_List__c</fields>
+        <fields>Show_In_Related_List__c</fields>
         <relatedList>DynamicRelatedList_Field__mdt.DynamicRelatedList__c</relatedList>
+        <sortField>DynamicRelatedList_Object__c</sortField>
+        <sortOrder>Asc</sortOrder>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
+    <summaryLayout>
+        <masterLabel>00h5g00000Iv1DC</masterLabel>
+        <sizeX>4</sizeX>
+        <sizeY>0</sizeY>
+        <summaryLayoutStyle>Default</summaryLayoutStyle>
+    </summaryLayout>
 </Layout>

@@ -1,0 +1,6 @@
+<design:component >
+   <design:attribute name="rltdList_Title" label="List Title" description="Enter the Related List Title" />
+   <design:attribute name="rltdList_Icon" label="List Icon" description="Icon to be displayed in Related List" />
+   <design:attribute name="rltdList_Config" label="List Configuration Name" description="Name of Related List Configuration" />
+   <design:attribute name="rltd_List_DisplayAs" label="Diaplay List As" datasource="Table,Compact Tile,Detailed Tile"/>
+</design:component>
